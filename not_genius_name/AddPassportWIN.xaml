@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:not_genius_name"
         mc:Ignorable="d"
-        Title="AddPassportWin" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="AddPassportWin"  Width="800">
+    <StackPanel DataContext="{Binding Passport}">
+        <Label Content="Имя"/>
+        <TextBox Text="{Binding FirstName}"/>
+        <Label Content="Фамилия"/>
+        <TextBox Text="{Binding LastName}"/>
+        <Label Content="Отчество"/>
+        <TextBox Text="{Binding PatronymicName}"/>
+        <Label Content="Дата рождения"/>
+        <DatePicker SelectedDate="{Binding Birthday}"/>
+        <Label Content="Место рождения"/>
+        <TextBox Text="{Binding Birthplace}"/>
+        <Label Content="Дата получения паспорта"/>
+        <DatePicker SelectedDate="{Binding DataGetPassport}"/>
+        <Label Content="Выдан"/>
+        <TextBox Text="{Binding Organization}"/>
+        <Label Content="Серия"/>
+        <TextBox Text="{Binding Serial}"/>
+        <Label Content="Номер"/>
+        <TextBox Text="{Binding Number}"/>
+        <Label Content="Пол"/>
+        <CheckBox Content="Вы вертосексуал?" IsChecked="{Binding Gender}"/>
+        <Button Content="Сохранить" Click="Save_Post"/>
+    </StackPanel>
 </Window>

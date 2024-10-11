@@ -19,24 +19,25 @@ using System.Windows.Shapes;
 namespace not_genius_name
 {
     /// <summary>
-    /// Логика взаимодействия для AddPassportWin.xaml
+    /// Логика взаимодействия для SearchSnilsWin.xaml
     /// </summary>
-    public partial class AddPassportWin : Window
+    public partial class SearchSnilsWin : Window
     {
-        public Passport Passport { get; set; } = new();
+        public Search Search { get; set; } = new();
 
         HttpClient httpClient = new HttpClient();
 
-        public AddPassportWin()
+        public SearchSnilsWin()
         {
             InitializeComponent();
             DataContext = this;
             httpClient.BaseAddress = new Uri("http://localhost:5065/api/");
         }
-        private async void Save_Post(object sender, RoutedEventArgs e)
+
+        private async void Check_Post(object sender, RoutedEventArgs e)
         {
-            string arg = JsonSerializer.Serialize(Passport);
-            var responce = await httpClient.PostAsync($"PersonalData/CreatePassport",
+            string arg = JsonSerializer.Serialize(Search);
+            var responce = await httpClient.PostAsync($"PersonalData/SearchHumanSnils",
                 new StringContent(arg, Encoding.UTF8, "application/json"));
 
             if (responce.StatusCode != System.Net.HttpStatusCode.OK)
@@ -45,8 +46,9 @@ namespace not_genius_name
                 return;
             }
             else
-            {          
-                MessageBox.Show("Паспорт создан!");
+            {
+                var answer = await responce.Content.ReadFromJsonAsync<Search>();
+                MessageBox.Show($"Нашелся человек по снилсу - {answer.ToString()}");
                 Close();
             }
         }

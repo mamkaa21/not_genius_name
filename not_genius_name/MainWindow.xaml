@@ -7,34 +7,11 @@
          xmlns:w="clr-namespace:not_genius_name.Model"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <ListView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" ItemsSource="Passports">
-            
-        </ListView>
-        <ListView Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="3" >
-
-        </ListView>
+    <StackPanel>
         <Button Grid.Column="1" Grid.Row="4" Content="Добавить паспорт" Click="AddPassport"/>
         <Button Grid.Column="2" Grid.Row="4" Content="Добавить снилс" Click="AddSnils"/>
         <Button Grid.Column="3" Grid.Row="4" Content="Поиск паспорта" Click="SearchPassport"/>
         <Button Grid.Column="4" Grid.Row="4" Content="Поиск снилса" Click="SearchSnils"/>
         <Button Grid.Column="5" Grid.Row="4" Content="Удаление паспорта" Click="DeletePassport"/>
-    </Grid>
+    </StackPanel>
 </Window>

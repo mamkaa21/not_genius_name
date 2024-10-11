@@ -19,24 +19,25 @@ using System.Windows.Shapes;
 namespace not_genius_name
 {
     /// <summary>
-    /// Логика взаимодействия для AddPassportWin.xaml
+    /// Логика взаимодействия для DeletePassportWin.xaml
     /// </summary>
-    public partial class AddPassportWin : Window
+    public partial class DeletePassportWin : Window
     {
         public Passport Passport { get; set; } = new();
 
         HttpClient httpClient = new HttpClient();
 
-        public AddPassportWin()
+        public DeletePassportWin()
         {
             InitializeComponent();
             DataContext = this;
             httpClient.BaseAddress = new Uri("http://localhost:5065/api/");
         }
-        private async void Save_Post(object sender, RoutedEventArgs e)
+
+        private async void Delete_Post(object sender, RoutedEventArgs e)
         {
             string arg = JsonSerializer.Serialize(Passport);
-            var responce = await httpClient.PostAsync($"PersonalData/CreatePassport",
+            var responce = await httpClient.PostAsync($"PersonalData/SendClaim",
                 new StringContent(arg, Encoding.UTF8, "application/json"));
 
             if (responce.StatusCode != System.Net.HttpStatusCode.OK)
@@ -45,8 +46,9 @@ namespace not_genius_name
                 return;
             }
             else
-            {          
-                MessageBox.Show("Паспорт создан!");
+            {
+                var result = await responce.Content.ReadAsStringAsync();
+                MessageBox.Show($"{result.ToString()}))))))))))))))))))))))))))))))))))))))))))))))))))");
                 Close();
             }
         }

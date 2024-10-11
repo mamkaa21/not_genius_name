@@ -23,8 +23,6 @@ namespace not_genius_name
 
         public Passport Passport { get; set; }
         public Snils Snils { get; set; }
-        public List<Passport> Passports { get; set; }
-        public List<Snils> Snilses { get; set; }
 
 
         public MainWindow()
@@ -50,17 +48,21 @@ namespace not_genius_name
 
         private void SearchPassport(object sender, RoutedEventArgs e)
         {
-            
+            SearchPassportWin searchPassportWin = new SearchPassportWin();
+            searchPassportWin.Show();
         }
 
         private void SearchSnils(object sender, RoutedEventArgs e)
         {
-
+            SearchSnilsWin searchSnilsWin = new SearchSnilsWin();
+            searchSnilsWin.Show();
         }
+
 
         private void DeletePassport(object sender, RoutedEventArgs e)
         {
-
+            DeletePassportWin deletePassportWin = new DeletePassportWin();
+            deletePassportWin.Show();
         }
     }
 }

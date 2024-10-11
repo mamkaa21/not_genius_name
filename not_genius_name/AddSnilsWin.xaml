@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:not_genius_name"
         mc:Ignorable="d"
         Title="AddSnilsWin" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel DataContext="{Binding Snils}">
+        <Label Content="Номер"/>
+        <TextBox Text="{Binding Number}"/>
+        <Label Content="Имя"/>
+        <TextBox Text="{Binding FirstName}"/>
+        <Label Content="Фамилия"/>
+        <TextBox Text="{Binding LastName}"/>
+        <Label Content="Отчество"/>
+        <TextBox Text="{Binding PatronymicName}"/>
+        <Label Content="Дата рождения"/>
+        <DatePicker SelectedDate="{Binding Birthday}"/>
+        <Label Content="Место рождения"/>
+        <TextBox Text="{Binding Birthplace}"/>
+        <Label Content="Пол"/>
+        <CheckBox Content="Вы вертосексуал?" IsChecked="{Binding Gender}"/>
+        <Label Content="Дата регистрации"/>
+        <DatePicker SelectedDate="{Binding DataGetSnils}"/>
+        <Button Content="Сохранить" Click="Save_Post"/>
+    </StackPanel>
 </Window>
