@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace not_genius_name
 {
     /// <summary>
-    /// Логика взаимодействия для AddPassport.xaml
+    /// Логика взаимодействия для AddPassportWin.xaml
     /// </summary>
-    public partial class AddPassportWIN : Window
+    public partial class AddPassportWin : Window
     {
-        public AddPassportWIN()
+        public AddPassportWin()
         {
             InitializeComponent();
         }

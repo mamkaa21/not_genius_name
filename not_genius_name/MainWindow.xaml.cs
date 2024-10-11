@@ -21,8 +21,10 @@ namespace not_genius_name
     {
         HttpClient httpClient = new HttpClient();
 
-        public Passport Passports { get; set; }
-        public Snils Snilses { get; set; }
+        public Passport Passport { get; set; }
+        public Snils Snils { get; set; }
+        public List<Passport> Passports { get; set; }
+        public List<Snils> Snilses { get; set; }
 
 
         public MainWindow()
@@ -36,17 +38,19 @@ namespace not_genius_name
 
         private void AddPassport(object sender, RoutedEventArgs e)
         {
-
+            AddPassportWin addPassportWin = new AddPassportWin();
+            addPassportWin.Show();
         }
 
         private void AddSnils(object sender, RoutedEventArgs e)
         {
-
+            AddSnilsWin addSnilsWin = new AddSnilsWin();
+            addSnilsWin.Show();
         }
 
         private void SearchPassport(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void SearchSnils(object sender, RoutedEventArgs e)
